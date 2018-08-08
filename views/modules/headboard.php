@@ -4,7 +4,7 @@
 	LOGOTIPO
 	=======================================================-->
 
-	<a href="" class="logo">
+	<a href="#" class="logo">
 		<!-- logo mini -->
 		<span class="logo-mini">
 			<img src="views/img/template/icono-blanco.png" class="img-responsive" alt="Logo blanco" style="padding:10px;">
@@ -23,7 +23,7 @@
 	<nav class="navbar navbar-static-top" role="navigation">
 
 		<!-- Botón de navegación -->
-		<a href="" class="sidebar-toggle" data-toggle="push-menu" role="button">
+		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 			<span class="sr-only">Toggle Navigation</span>
 		</a>
 
