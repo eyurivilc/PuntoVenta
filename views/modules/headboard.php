@@ -4,7 +4,7 @@
 	LOGOTIPO
 	=======================================================-->
 
-	<a href="#" class="logo">
+	<a href="inicio" class="logo">
 		<!-- logo mini -->
 		<span class="logo-mini">
 			<img src="views/img/template/icono-blanco.png" class="img-responsive" alt="Logo blanco" style="padding:10px;">

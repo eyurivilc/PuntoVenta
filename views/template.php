@@ -10,6 +10,8 @@
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+	<link rel="icon" href="views/img/template/icono-negro.png">
+
 	<!--======================================================
 	PLUGINS DE CSS
 	=======================================================-->
@@ -57,11 +59,16 @@
 CUERPO DOCUMENTO
 =======================================================-->
 
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
-	<!-- Site wrapper -->
-	<div class="wrapper">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+
 
 		<?php
+
+		if ( isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok" ) {
+
+			/*========  Site wrapper ======*/
+			echo '<div class="wrapper">';
+
 			/*======================================================
 			HEADBOARD
 			=======================================================*/
@@ -75,16 +82,37 @@ CUERPO DOCUMENTO
 			/*======================================================
 			CONTENT
 			=======================================================*/
-			include "modules/content.php";
+			if (isset($_GET["ruta"])) {
+				if ($_GET["ruta"] == "inicio" ||
+					$_GET["ruta"] == "usuario" ||
+					$_GET["ruta"] == "categorias" ||
+					$_GET["ruta"] == "productos" ||
+					$_GET["ruta"] == "clientes" ||
+					$_GET["ruta"] == "ventas" ||
+					$_GET["ruta"] == "crear-venta" ||
+					$_GET["ruta"] == "reportes") {
+					include "modules/".$_GET["ruta"].".php";
+				} else {
+					include "modules/404.php";
+				}
+			} else {
+				include "modules/404.php";
+			}
 
 			/*======================================================
 			FOOTER
 			=======================================================*/
 			include "modules/footer.php";
+
+			echo '</div>';
+			/*========  ./wrapper ======*/
+
+		} else {
+			include "modules/login.php";
+		}
+
 		?>
 
-	</div>
-	<!-- ./wrapper -->
 
 	<script scr="views/js/template.js"></script>
 
