@@ -25,6 +25,11 @@
 					<button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
 				</div>
 			</div>
+
+			<?php
+				$login = new ControllerUsuarios();
+				$login -> ctrIngresoUsuario();
+			?>
 		</form>
 	</div>
 	<!-- /.login-box-body -->
