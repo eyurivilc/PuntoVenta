@@ -66,6 +66,9 @@ session_start();
     <script src="views/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 
+    <!-- SweetAlert2 -->
+    <script src="views/plugins/sweetAlert2/sweetalert2.all.js"></script>
+
 </head>
 
 <!--======================================================
@@ -129,6 +132,7 @@ CUERPO DOCUMENTO
 
 
 	<script src="views/js/template.js"></script>
+    <scrip src="views/js/users.js"></scrip>
 
 </body>
 </html>
