@@ -48,11 +48,50 @@ class ControllerUsuarios{
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])) {
 
+                /* Validar la imagen */
+                $ruta = "";
+
+                if (isset($_FILES["nuevaFoto"]["tmp_name"])) {
+
+                    list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+                    $nuevoAncho = 500;
+                    $nuevoAlto = 500;
+
+                    /* Crear directorio para guardar foto de usuario */
+                    $directorio = "views/img/users/".$_POST["nuevoUsuario"];
+                    mkdir($directorio, 0755);
+
+                    /* De acuerdo al tipo de imagen aplicamos las funciones por defecto de PHP */
+                    if ($_FILES["nuevaFoto"]["type"] == "image/jpeg") {
+                        /* Guardar la imagen en el directorio */
+                        $aleatorio = mt_rand(100, 999);
+                        $ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+
+                        $origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
+                        $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+                        imagecopyresized($destino,$origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagejpeg($destino, $ruta);
+                    }
+                    if ($_FILES["nuevaFoto"]["type"] == "image/png") {
+                        /* Guardar la imagen en el directorio */
+                        $aleatorio = mt_rand(100, 999);
+                        $ruta = "views/img/users/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
+
+                        $origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
+                        $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+                        imagecopyresized($destino,$origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+                        imagepng($destino, $ruta);
+                    }
+                }
+
                 $tabla = "usuarios";
                 $datos = array( "nombre" => $_POST["nuevoNombre"],
                                 "usuario" => $_POST["nuevoUsuario"],
                                 "password" => $_POST["nuevoPassword"],
-                                "perfil" => $_POST["nuevoPerfil"]);
+                                "perfil" => $_POST["nuevoPerfil"],
+                                "ruta" => $ruta);
 
                 $respuesta = ModelsUsuarios::mdlIngresarUsuario($tabla, $datos);
 

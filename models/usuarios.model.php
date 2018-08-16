@@ -26,7 +26,6 @@ class ModelsUsuarios {
     REGISTRO DE USUARIOS
     ==================================*/
     static public function mdlIngresarUsuario($tabla, $datos){
-        $url = "/direccion/imgen.png";
         $estado = 1;
         $ultimo_login = "2018-08-10 07:00:00";
 
@@ -37,7 +36,7 @@ class ModelsUsuarios {
         $stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
         $stmt -> bindParam(":password", $datos["password"], PDO::PARAM_STR);
         $stmt -> bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-        $stmt -> bindParam(":foto", $url);
+        $stmt -> bindParam(":foto", $datos["ruta"], PDO::PARAM_STR);
         $stmt -> bindParam(":estado", $estado);
         $stmt -> bindParam(":ultimo_login", $ultimo_login);
 
