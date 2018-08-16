@@ -135,4 +135,13 @@ class ControllerUsuarios{
             }
         }
     }
+
+    /*==================================
+    MOSTRAR USUARIO
+    ==================================*/
+    static public function ctrMostrarUsuarios($item, $valor) {
+        $tabla = "usuarios";
+        $respuesta = ModelsUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+        return $respuesta;
+    }
 }
