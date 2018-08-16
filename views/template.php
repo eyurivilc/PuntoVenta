@@ -66,6 +66,11 @@ session_start();
     <script src="views/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 
+    <!-- SweetAlert2 -->
+    <script src="views/plugins/sweetAlert/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <link rel="stylesheet" href="views/plugins/sweetAlert/sweetalert2.min.css">
+
 </head>
 
 <!--======================================================
@@ -97,7 +102,7 @@ CUERPO DOCUMENTO
 			=======================================================*/
 			if (isset($_GET["ruta"])) {
 				if ($_GET["ruta"] == "inicio" ||
-					$_GET["ruta"] == "usuario" ||
+					$_GET["ruta"] == "usuarios" ||
 					$_GET["ruta"] == "categorias" ||
 					$_GET["ruta"] == "productos" ||
 					$_GET["ruta"] == "clientes" ||

@@ -24,7 +24,7 @@
             <table class="table table-bordered dt-responsive table-striped tablas">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th style="width: 10px;">#</th>
                         <th>Nombre</th>
                         <th>Usuario</th>
                         <th>Foto</th>
@@ -143,7 +143,7 @@ MODAL AGREGAR USUARIO
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO</div>
                             <input type="file" id="nuevaFoto" name="nuevaFoto">
-                            <p class="help-block">Peso máximo de la foto 200MB</p>
+                            <p class="help-block">Peso máximo de la foto 2MB</p>
                             <img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="100px" alt="Foto por defecto">
                         </div>
                     </div>
@@ -152,6 +152,10 @@ MODAL AGREGAR USUARIO
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar usuario</button>
                 </div>
+                <?php
+                    $crearUsuario = new ControllerUsuarios();
+                    $crearUsuario -> crtCrearUsuario();
+                ?>
             </form>
         </div>
     </div>

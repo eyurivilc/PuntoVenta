@@ -8,7 +8,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="usuario">
+				<a href="usuarios">
 					<i class="fa fa-user"></i>
 					<span>Usuario</span>
 				</a>
