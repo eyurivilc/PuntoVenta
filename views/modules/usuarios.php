@@ -142,9 +142,9 @@ MODAL AGREGAR USUARIO
                         <!--Entrada para el subir foto-->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO</div>
-                            <input type="file" id="nuevaFoto" name="nuevaFoto">
+                            <input type="file" class="nuevaFoto" name="nuevaFoto">
                             <p class="help-block">Peso máximo de la foto 2MB</p>
-                            <img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="100px" alt="Foto por defecto">
+                            <img src="views/img/users/default/anonymous.png" class="img-thumbnail previsualizar" width="100px" alt="Foto por defecto">
                         </div>
                     </div>
                 </div>
