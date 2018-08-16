@@ -12,6 +12,9 @@ class ControllerUsuarios{
 			if( preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])) {
 
+                    $salt = '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$';
+                    $encriptar = crypt($_POST["ingPassword"], $salt);
+
 					$tabla = "usuarios";
 
 					$item = "usuario";
@@ -19,11 +22,8 @@ class ControllerUsuarios{
 
 					$respuesta = ModelsUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-					// Trae el array de la DB
-					//var_dump($respuesta["usuario"]);
-
                     // Validar si usuario se loguea correctamente
-					if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]) {
+					if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar) {
                         //echo '<br><div class="alert alert-success">Bienvenido al sistema.</div>';
                         $_SESSION["iniciarSesion"] = "ok";
                         echo '
@@ -87,9 +87,13 @@ class ControllerUsuarios{
                 }
 
                 $tabla = "usuarios";
+
+                $salt = '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$';
+                $encriptar = crypt($_POST["nuevoPassword"], $salt);
+
                 $datos = array( "nombre" => $_POST["nuevoNombre"],
                                 "usuario" => $_POST["nuevoUsuario"],
-                                "password" => $_POST["nuevoPassword"],
+                                "password" => $encriptar,
                                 "perfil" => $_POST["nuevoPerfil"],
                                 "ruta" => $ruta);
 
