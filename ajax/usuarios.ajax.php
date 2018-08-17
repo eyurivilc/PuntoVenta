@@ -9,7 +9,7 @@ class AjaxUsuarios {
     =============================*/
     public $idUsuario;
 
-    public function ajaxEditarUsuario(){
+    static public function ajaxEditarUsuario(){
         $item = "id";
         $valor = $this->idUsuario;
         $respuesta = ControllerUsuarios::ctrMostrarUsuarios($item, $valor);
@@ -21,7 +21,7 @@ class AjaxUsuarios {
     public $activarUsuario;
     public $activarId;
 
-    public function ajaxActivarUsuario() {
+    static public function ajaxActivarUsuario() {
         $tabla = "usuarios";
 
         $item1 = "estado";
@@ -37,7 +37,7 @@ class AjaxUsuarios {
     =============================*/
     public $validarUsuario;
 
-    public function ajaxValidarUsuario() {
+    static public function ajaxValidarUsuario() {
         $item = "usuario";
         $valor = $this->validarUsuario;
         $respuesta = ControllerUsuarios::ctrMostrarUsuarios($item, $valor);

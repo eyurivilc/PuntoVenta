@@ -125,4 +125,28 @@ $("#nuevoUsuario").change(function () {
             }
         }
     })
-})
+});
+
+/*=============================
+ELIMINAR USUSARIO
+ =============================*/
+$(".btnEliminarUsuario").click(function () {
+    var idUsuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("usuario");
+
+    swal({
+        title: "¿Está seguro de borrar el usuario?",
+        text: "¡Si no lo está puede cancelar la acción!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085D6",
+        cancelButtonColor: "#D33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, borrar Usuario!"
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+        }
+    });
+});
