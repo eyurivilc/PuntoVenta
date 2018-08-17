@@ -108,7 +108,7 @@ MODAL AGREGAR USUARIO
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" required>
+                                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario" placeholder="Ingresar usuario" required>
                             </div>
                         </div>
                         <!--Entrada para el password-->
