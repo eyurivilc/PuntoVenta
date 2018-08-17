@@ -162,28 +162,29 @@ MODAL EDITAR USUARIO
                 </div>
                 <div class="modal-body">
                     <div class="box-body">
-                        <!--Entrada para el nombre-->
+                        <!--Editar para el nombre-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
                             </div>
                         </div>
-                        <!--Entrada para el usuario-->
+                        <!--Editar para el usuario-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
+                                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
                             </div>
                         </div>
-                        <!--Entrada para el password-->
+                        <!--Editar para el password-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña" required>
+                                <input type="hidden" id="passwordActual" name="passwordActual">
                             </div>
                         </div>
-                        <!--Entrada para el seleccionar perfil-->
+                        <!--Editar para el seleccionar perfil-->
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
@@ -195,12 +196,13 @@ MODAL EDITAR USUARIO
                                 </select>
                             </div>
                         </div>
-                        <!--Entrada para el subir foto-->
+                        <!--Editar para el subir foto-->
                         <div class="form-group">
                             <div class="panel">SUBIR FOTO</div>
                             <input type="file" class="nuevaFoto" name="editarFoto">
                             <p class="help-block">Peso máximo de la foto 2MB</p>
                             <img src="views/img/users/default/anonymous.png" class="img-thumbnail previsualizar" width="100px" alt="Foto por defecto">
+                            <input type="hidden" id="fotoActual" name="fotoActual">
                         </div>
                     </div>
                 </div>
@@ -208,7 +210,10 @@ MODAL EDITAR USUARIO
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Modificar usuario</button>
                 </div>
-
+                <?php
+                    $editarUsuario = new ControllerUsuarios();
+                    $editarUsuario -> crtEditarUsuario();
+                ?>
             </form>
         </div>
     </div>
