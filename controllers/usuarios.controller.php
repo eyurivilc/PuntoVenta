@@ -24,19 +24,24 @@ class ControllerUsuarios{
 
                     // Validar si usuario se loguea correctamente
 					if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar) {
-                        //echo '<br><div class="alert alert-success">Bienvenido al sistema.</div>';
-                        $_SESSION["iniciarSesion"] = "ok";
-                        $_SESSION["id"] = $respuesta["id"];
-                        $_SESSION["nombre"] = $respuesta["nombre"];
-                        $_SESSION["usuario"] = $respuesta["usuario"];
-                        $_SESSION["foto"] = $respuesta["foto"];
-                        $_SESSION["perfil"] = $respuesta["perfil"];
 
-                        echo '
-                                <script>
-                                    window.location = "inicio";
-                                </script>
-                        ';
+					    if ($respuesta["estado"] == 1) {
+                            //echo '<br><div class="alert alert-success">Bienvenido al sistema.</div>';
+                            $_SESSION["iniciarSesion"] = "ok";
+                            $_SESSION["id"] = $respuesta["id"];
+                            $_SESSION["nombre"] = $respuesta["nombre"];
+                            $_SESSION["usuario"] = $respuesta["usuario"];
+                            $_SESSION["foto"] = $respuesta["foto"];
+                            $_SESSION["perfil"] = $respuesta["perfil"];
+
+                            echo '
+                                    <script>
+                                        window.location = "inicio";
+                                    </script>
+                            ';
+                        } else {
+					        echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';
+                        }
                     } else {
 					    echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
                     }
