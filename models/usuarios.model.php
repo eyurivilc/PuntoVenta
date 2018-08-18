@@ -27,9 +27,6 @@ class ModelsUsuarios {
     REGISTRO DE USUARIOS
     ==================================*/
     static public function mdlIngresarUsuario($tabla, $datos){
-        $estado = 1;
-        $ultimo_login = "2018-08-10 07:00:00";
-
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto, estado, ultimo_login) 
                                               VALUES (:nombre, :usuario, :password, :perfil, :foto, :estado, :ultimo_login)");
 

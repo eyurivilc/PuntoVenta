@@ -90,8 +90,8 @@ MODAL AGREGAR CATEGORIA
                         <!--Entrada para el nombre-->
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="nuevoCategoria" placeholder="Ingresar categoría" required>
+                                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                                <input type="text" class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" placeholder="Ingresar categoría" required>
                             </div>
                         </div>
                     </div>
@@ -100,6 +100,10 @@ MODAL AGREGAR CATEGORIA
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar categoría</button>
                 </div>
+                <?php
+                    $crearCategoria = new ControllerCategorias();
+                    $crearCategoria -> crtCrearCategoria();
+                ?>
             </form>
         </div>
     </div>

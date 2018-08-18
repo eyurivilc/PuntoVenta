@@ -137,6 +137,7 @@ CUERPO DOCUMENTO
 
 	<script src="views/js/template.js"></script>
     <script src="views/js/usuarios.js"></script>
+    <script src="views/js/categorias.js"></script>
 
 </body>
 </html>
