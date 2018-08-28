@@ -39,4 +39,13 @@ class ControllerCategorias {
             }
         }
     }
+
+    /*==============================
+    MOSTRAR CATEGORIAS
+    ==============================*/
+    static public function ctrMostrarCategorias($item, $valor) {
+        $tabla = "categorias";
+        $respuesta = ModelsCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+        return $respuesta;
+    }
 }

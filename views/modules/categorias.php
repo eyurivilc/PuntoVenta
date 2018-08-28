@@ -30,36 +30,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUIPOS ELECTROMECANICOS</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditarUsuario"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUIPOS ELECTROMECANICOS</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditarUsuario"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>EQUIPOS ELECTROMECANICOS</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning btnEditarUsuario"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                    <?php
+                        $item = null;
+                        $valor = null;
+                        $categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
+                        foreach ($categorias as $key => $value) {
+                            echo '
+                                <tr>
+                                    <!--<td>'.$value["id"].'</td>-->
+                                    <td>'.($key+1).'</td>
+                                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-warning btnEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ';
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
