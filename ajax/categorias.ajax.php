@@ -5,6 +5,8 @@
  * Date: 18/08/18
  * Time: 16:16
  */
+// Falta validar el ingreso de categorías repetidas
+
 require_once "../controllers/categorias.controller.php";
 require_once "../models/categorias.model.php";
 

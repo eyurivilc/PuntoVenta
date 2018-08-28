@@ -3,7 +3,7 @@ class ControllerCategorias {
     /*==============================
     CREAR CATEGORIAS
     ==============================*/
-    static public function crtCrearCategoria() {
+    static public function ctrCrearCategoria() {
         if (isset($_POST["nuevaCategoria"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])) {
                 $tabla = "categorias";
@@ -38,14 +38,5 @@ class ControllerCategorias {
                 </script>';
             }
         }
-    }
-
-    /*==============================
-    MOSTRAR CATEGORIAS
-    ==============================*/
-    static public function crtMostrarCategoria($item, $valor) {
-        $tabla = "categorias";
-        $respuesta = ModelsCategorias::mdlMostrarCategorias($tabla, $item, $valor);
-        return $respuesta;
     }
 }

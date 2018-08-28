@@ -100,6 +100,10 @@ MODAL AGREGAR CATEGORIA
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar categoría</button>
                 </div>
+                <?php
+                    $crearCategoria = new ControllerCategorias();
+                    $crearCategoria -> ctrCrearCategoria();
+                ?>
             </form>
         </div>
     </div>

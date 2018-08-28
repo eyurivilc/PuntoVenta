@@ -1,6 +1,7 @@
 /*=========================================
 VALIDAR SI CATEGORIA YA ESTÁ REGISTRADO
  ========================================*/
+// Falta validar el ingreso de categorías repetidas
 $("#nuevaCategoria").change(function () {
     //$(".alert").remove();
 
