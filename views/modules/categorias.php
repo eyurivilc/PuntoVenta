@@ -31,25 +31,24 @@
                     </thead>
                     <tbody>
                     <?php
-                        $item = null;
-                        $valor = null;
-                        $categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
-                        foreach ($categorias as $key => $value) {
-                            echo '
+						$item = null;
+						$valor = null;
+						$categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
+						foreach ($categorias as $key => $value) {
+							echo '
                                 <tr>
-                                    <!--<td>'.$value["id"].'</td>-->
-                                    <td>'.($key+1).'</td>
-                                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                                    <!--<td>' . $value["id"] . '</td>-->
+                                    <td>' . ($key + 1) . '</td>
+                                    <td class="text-uppercase">' . $value["categoria"] . '</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-warning btnEditarUsuario"><i class="fa fa-pencil"></i></button>
-                                            <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
+                                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                            ';
-                        }
-                    ?>
+							';
+						}?>
                     </tbody>
                 </table>
             </div>
@@ -91,9 +90,48 @@ MODAL AGREGAR CATEGORIA
                     <button type="submit" class="btn btn-primary">Guardar categoría</button>
                 </div>
                 <?php
-                    $crearCategoria = new ControllerCategorias();
-                    $crearCategoria -> ctrCrearCategoria();
-                ?>
+					$crearCategoria = new ControllerCategorias();
+					$crearCategoria->ctrCrearCategoria();
+				?>
+			</form>
+        </div>
+    </div>
+</div>
+
+<!--======================================================
+MODAL EDITAR CATEGORIA
+=======================================================-->
+
+<div id="modalEditarCategoria" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" method="post">
+                <!-- Cabeza del modal -->
+                <div class="modal-header" style="background: #3c8dbc; color: #FFF;">
+                    <button class="close" type="button" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editar categoría</h4>
+                </div>
+                <!-- Cuerpo del modal -->
+                <div class="modal-body">
+                    <div class="box-body">
+                        <!--Entrada para el nombre-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                                <input type="text" class="form-control input-lg" id="editarCategoria" name="editarCategoria" required>
+                                <input type="hidden" id="idCategoria" name="idCategoria" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+                <?php
+					$editarCategoria = new ControllerCategorias();
+					$editarCategoria->ctrEditarCategoria();
+				?>
             </form>
         </div>
     </div>
