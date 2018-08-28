@@ -100,42 +100,6 @@ MODAL AGREGAR CATEGORIA
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar categoría</button>
                 </div>
-                <?php
-                    $crearCategoria = new ControllerCategorias();
-                    $crearCategoria -> crtCrearCategoria();
-                ?>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!--======================================================
-MODAL EDITAR USUARIO
-=======================================================-->
-
-<div id="modalEditarCategoria" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form role="form" method="post" enctype="multipart/form-data">
-                <div class="modal-header" style="background: #3c8dbc; color: #FFF;">
-                    <button class="close" type="button" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Editar categoría</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="box-body">
-                        <!--Editar para el nombre-->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" id="editarCategoria" name="editarCategoria" value="" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-                    <button type="submit" class="btn btn-primary">Modificar categoría</button>
-                </div>
             </form>
         </div>
     </div>
