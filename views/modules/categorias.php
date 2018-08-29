@@ -31,24 +31,23 @@
                     </thead>
                     <tbody>
                     <?php
-						$item = null;
-						$valor = null;
-						$categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
-						foreach ($categorias as $key => $value) {
-							echo '
+																			$item = null;
+																			$valor = null;
+																			$categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
+																			foreach ($categorias as $key => $value) {
+																				echo '
                                 <tr>
-                                    <!--<td>' . $value["id"] . '</td>-->
                                     <td>' . ($key + 1) . '</td>
                                     <td class="text-uppercase">' . $value["categoria"] . '</td>
                                     <td>
                                         <div class="btn-group">
                                             <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
-                                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["id"] . '"><i class="fa fa-times"></i></button>
                                         </div>
                                     </td>
                                 </tr>
 							';
-						}?>
+																			} ?>
                     </tbody>
                 </table>
             </div>
@@ -90,9 +89,9 @@ MODAL AGREGAR CATEGORIA
                     <button type="submit" class="btn btn-primary">Guardar categoría</button>
                 </div>
                 <?php
-					$crearCategoria = new ControllerCategorias();
-					$crearCategoria->ctrCrearCategoria();
-				?>
+															$crearCategoria = new ControllerCategorias();
+															$crearCategoria->ctrCrearCategoria();
+															?>
 			</form>
         </div>
     </div>
@@ -129,10 +128,14 @@ MODAL EDITAR CATEGORIA
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
                 <?php
-					$editarCategoria = new ControllerCategorias();
-					$editarCategoria->ctrEditarCategoria();
-				?>
+															$editarCategoria = new ControllerCategorias();
+															$editarCategoria->ctrEditarCategoria();
+															?>
             </form>
         </div>
     </div>
 </div>
+<?php
+$borrarCategoria = new ControllerCategorias();
+$borrarCategoria->ctrBorrarCategoria();
+?>

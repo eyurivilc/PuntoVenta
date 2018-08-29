@@ -88,5 +88,36 @@ class ControllerCategorias {
                 </script>';
             }
         }
-    }
+	}
+	
+	/*==============================
+    BORRAR CATEGORIAS
+	==============================*/
+	static public function ctrBorrarCategoria()
+	{
+		if (isset($_GET["idCategoria"]))
+		{
+			$tabla = "Categorias";
+			$datos = $_GET["idCategoria"];
+			$respuesta = ModelsCategorias::mdlBorrarCategoria($tabla, $datos);
+
+			if ($respuesta = "ok")
+			{
+				echo '<script>
+					swal({
+						type: "success",
+						title: "La categoría ha sido borrada correctamente",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar",
+						closeOnConfirm: false
+					}).then((result) => {
+						if (result.value)
+						{
+							window.location = "categorias";
+						}
+					})
+				</script>';
+			}
+		}
+	}
 }
