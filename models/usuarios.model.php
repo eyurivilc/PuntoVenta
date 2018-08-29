@@ -24,79 +24,18 @@ class ModelsUsuarios {
 	}
 
     /*==================================
-    REGISTRO DE USUARIOS
+    INGRESAR USUARIOS
     ==================================*/
-    static public function mdlIngresarUsuario($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, foto, estado, ultimo_login) 
-                                              VALUES (:nombre, :usuario, :password, :perfil, :foto, :estado, :ultimo_login)");
+    static public function mdlIngresarUsuario($tabla, $datos) {
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil) VALUES (:nombre, :usuario, :password, :perfil)");
 
         $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
         $stmt -> bindParam(":password", $datos["password"], PDO::PARAM_STR);
-        $stmt -> bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-        $stmt -> bindParam(":foto", $datos["ruta"], PDO::PARAM_STR);
-        $stmt -> bindParam(":estado", $estado);
-        $stmt -> bindParam(":ultimo_login", $ultimo_login);
+        $stmt -> bindParam(":perfil",$datos["perfil"], PDO::PARAM_STR);
 
-        if  ($stmt->execute()){
-            return "ok";
-        } else {
-            return "error";
-        }
-
-        $stmt -> close();
-        $stmt = null;
-    }
-
-    /*==================================
-	EDITAR USUARIOS
-	==================================*/
-    static public function mdlEditarUsuario($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, password = :password, perfil = :perfil, foto = :foto WHERE usuario = :usuario");
-
-        $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-        $stmt -> bindParam(":password", $datos["password"], PDO::PARAM_STR);
-        $stmt -> bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
-        $stmt -> bindParam(":foto", $datos["ruta"], PDO::PARAM_STR);
-        $stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-
-        if ($stmt -> execute()) {
-            return "ok";
-        } else {
-            return "error";
-        }
-
-        $stmt -> close();
-        $stmt = null;
-    }
-
-    /*==================================
-	ACTUALIZAR USUARIOS
-	==================================*/
-    static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2) {
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
-
-        $stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
-        $stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
-
-        if ($stmt -> execute()) {
-            return "ok";
-        } else {
-            return "error";
-        }
-
-        $stmt -> close();
-        $stmt = null;
-    }
-
-    /*==================================
-	BORRAR USUARIOS
-	==================================*/
-    static public function mdlBorrarUsuario($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
-
-        $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
-
+        var_dump($stmt->execute());
         if ($stmt -> execute()) {
             return "ok";
         } else {

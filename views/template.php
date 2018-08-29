@@ -67,11 +67,15 @@ session_start();
     <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 
     <!-- SweetAlert2 -->
+<<<<<<< HEAD
     <script src="views/plugins/sweetAlert/sweetalert2.all.min.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <link rel="stylesheet" href="views/plugins/sweetAlert/sweetalert2.min.css">-->
     <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+=======
+    <script src="views/plugins/sweetAlert2/sweetalert2.all.js"></script>
+>>>>>>> master
 
 </head>
 
