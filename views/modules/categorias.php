@@ -30,12 +30,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-																			$item = null;
-																			$valor = null;
-																			$categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
-																			foreach ($categorias as $key => $value) {
-																				echo '
+					<?php
+				$item = null;
+				$valor = null;
+				$categorias = ControllerCategorias::ctrMostrarCategorias($item, $valor);
+				foreach ($categorias as $key => $value) {
+					echo '
                                 <tr>
                                     <td>' . ($key + 1) . '</td>
                                     <td class="text-uppercase">' . $value["categoria"] . '</td>
@@ -47,7 +47,7 @@
                                     </td>
                                 </tr>
 							';
-																			} ?>
+				} ?>
                     </tbody>
                 </table>
             </div>
@@ -127,10 +127,10 @@ MODAL EDITAR CATEGORIA
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
-                <?php
-															$editarCategoria = new ControllerCategorias();
-															$editarCategoria->ctrEditarCategoria();
-															?>
+				<?php
+			$editarCategoria = new ControllerCategorias();
+			$editarCategoria->ctrEditarCategoria();
+			?>
             </form>
         </div>
     </div>
