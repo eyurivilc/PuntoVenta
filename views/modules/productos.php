@@ -37,57 +37,41 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-							<td><img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px" alt="Imagen de producto"> </td>
-							<td>0001</td>
-							<td>Lorem ipsum dolor sit amet</td>
-							<td>Lorem ipsum</td>
-							<td>20</td>
-							<td>5.00</td>
-							<td>10.00</td>
-							<td>2018-08-28 15:05:32</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-							<td><img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px" alt="Imagen de producto"> </td>
-							<td>0001</td>
-							<td>Lorem ipsum dolor sit amet</td>
-							<td>Lorem ipsum</td>
-							<td>20</td>
-							<td>5.00</td>
-							<td>10.00</td>
-							<td>2018-08-28 15:05:32</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-							<td><img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px" alt="Imagen de producto"> </td>
-							<td>0001</td>
-							<td>Lorem ipsum dolor sit amet</td>
-							<td>Lorem ipsum</td>
-							<td>20</td>
-							<td>5.00</td>
-							<td>10.00</td>
-							<td>2018-08-28 15:05:32</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+					<?php
+                        $item = null;
+                        $valor = null;
+                        
+                        $productos = ControllerProductos::crtMostrarProductos($item, $valor);
+                        
+                        foreach ($productos as $key => $value) {
+                            echo '
+								<tr>
+									<td>'.($key+1).'</td>
+									<td>
+										<img src="views/img/products/default/anonymous.png" class="img-thumbnail" width="40px" alt="Imagen de producto">
+									</td>
+									<td>'.$value["codigo"].'</td>
+									<td>'.$value["descripcion"].'</td>
+							';
+                            $item = "id";
+                            $valor = $value["id_categoria"];
+                            $categoria = ControllerCategorias::ctrMostrarCategorias($item, $valor);
+                            echo '
+									<td>'.$categoria["categoria"].'</td>
+									<td>'.$value["stock"].'</td>
+									<td>'.$value["precio_compra"].'</td>
+									<td>'.$value["precio_venta"].'</td>
+									<td>'.$value["fecha"].'</td>
+									<td>
+										<div class="btn-group">
+											<button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+											<button class="btn btn-danger"><i class="fa fa-times"></i></button>
+										</div>
+									</td>
+								</tr>
+							';
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
