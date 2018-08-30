@@ -39,7 +39,10 @@ session_start();
 
     <!-- Data table -->
     <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+	<link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+	
+	<!-- iCheck for checkboxes and radio inputs -->
+	<link rel="stylesheet" href="views/plugins/iCheck/all.css">
 
 	<!--======================================================
 	PLUGINS DE JAVASCRIPT
@@ -67,15 +70,11 @@ session_start();
     <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
 
     <!-- SweetAlert2 -->
-<<<<<<< HEAD
     <script src="views/plugins/sweetAlert/sweetalert2.all.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <link rel="stylesheet" href="views/plugins/sweetAlert/sweetalert2.min.css">-->
-    <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-=======
-    <script src="views/plugins/sweetAlert2/sweetalert2.all.js"></script>
->>>>>>> master
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+	
+	<!-- iCheck 1.0.1 -->
+	<script src="views/plugins/iCheck/icheck.min.js"></script>
 
 </head>
 
@@ -88,55 +87,55 @@ CUERPO DOCUMENTO
 
 		<?php
 
-		if ( isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok" ) {
+	if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
 			/*========  Site wrapper ======*/
-			echo '<div class="wrapper">';
+		echo '<div class="wrapper">';
 
 			/*======================================================
 			HEADBOARD
 			=======================================================*/
-			include "modules/headboard.php";
+		include "modules/headboard.php";
 			
 			/*======================================================
 			MENU
 			=======================================================*/
-			include "modules/menu.php";
+		include "modules/menu.php";
 
 			/*======================================================
 			CONTENT
 			=======================================================*/
-			if (isset($_GET["ruta"])) {
-				if ($_GET["ruta"] == "inicio" ||
-					$_GET["ruta"] == "usuarios" ||
-					$_GET["ruta"] == "categorias" ||
-					$_GET["ruta"] == "productos" ||
-					$_GET["ruta"] == "clientes" ||
-					$_GET["ruta"] == "ventas" ||
-					$_GET["ruta"] == "crear-venta" ||
-					$_GET["ruta"] == "reportes" ||
-                    $_GET["ruta"] == "salir") {
-					include "modules/".$_GET["ruta"].".php";
-				} else {
-					include "modules/404.php";
-				}
+		if (isset($_GET["ruta"])) {
+			if ($_GET["ruta"] == "inicio" ||
+				$_GET["ruta"] == "usuarios" ||
+				$_GET["ruta"] == "categorias" ||
+				$_GET["ruta"] == "productos" ||
+				$_GET["ruta"] == "clientes" ||
+				$_GET["ruta"] == "ventas" ||
+				$_GET["ruta"] == "crear-venta" ||
+				$_GET["ruta"] == "reportes" ||
+				$_GET["ruta"] == "salir") {
+				include "modules/" . $_GET["ruta"] . ".php";
 			} else {
 				include "modules/404.php";
 			}
+		} else {
+			include "modules/404.php";
+		}
 
 			/*======================================================
 			FOOTER
 			=======================================================*/
-			include "modules/footer.php";
+		include "modules/footer.php";
 
-			echo '</div>';
+		echo '</div>';
 			/*========  ./wrapper ======*/
 
-		} else {
-			include "modules/login.php";
-		}
+	} else {
+		include "modules/login.php";
+	}
 
-		?>
+	?>
 
 
 	<script src="views/js/template.js"></script>
